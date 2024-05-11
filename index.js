@@ -1,6 +1,11 @@
-const pull = (arr, ...args) => {
-  let argState = Array.isArray(args[0]) ? args[0] : args;
-  let pulled = arr.filter((v, i) => !argState.includes(v));
-  arr.length = 0;
-  pulled.forEach((v) => arr.push(v));
-};
+function isPrime(n) {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  let i = 5;
+  while (i * i <= n) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+    i += 6;
+  }
+  return true;
+}
